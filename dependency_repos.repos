@@ -3,3 +3,15 @@ repositories:
     type: git
     url: https://github.com/MOCAP4ROS2-Project/mocap_msgs.git
     version: master
+  mocap:
+    type: git
+    url: https://github.com/MOCAP4ROS2-Project/mocap.git
+    version: main
+  mocap4ros2_gazebo:
+    type: git
+    url: https://github.com/MOCAP4ROS2-Project/mocap4ros2_gazebo.git
+    version: main
+  mh_amcl:
+    type: git
+    url: https://github.com/fmrico/mh_amcl.git
+    version: main
