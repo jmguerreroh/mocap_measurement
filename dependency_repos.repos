@@ -14,4 +14,4 @@ repositories:
   mh_amcl:
     type: git
     url: https://github.com/fmrico/mh_amcl.git
-    version: main
+    version: matcher_brute

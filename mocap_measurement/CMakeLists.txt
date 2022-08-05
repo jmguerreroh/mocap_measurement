@@ -25,7 +25,7 @@ find_package(ament_cmake REQUIRED)
 find_package(mocap_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(visualization_msgs REQUIRED)
+find_package(mocap_measurement_msgs REQUIRED)
 
 # OpenCV node
 add_executable(measurement src/measurement.cpp)
@@ -38,7 +38,7 @@ ament_target_dependencies(
   "rclcpp"
   "mocap_msgs"
   "geometry_msgs"
-  "visualization_msgs"
+  "mocap_measurement_msgs"
 )
 
 install(TARGETS measurement
