@@ -3,7 +3,7 @@
   <version>0.0.1</version>
   <description>mocap_measurement_msgs</description>
   <maintainer email="josemiguel.guerrero@urjc.es">jmguerrero</maintainer>
-  <license>BSD</license>
+  <license>Apache License, Version 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -17,5 +17,10 @@
   <test_depend>ament_lint_common</test_depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <ros1_bridge mapping_rules="mocap_measurement_bridge_mapping_rule.yaml" />
+  </export>
 
 </package>
