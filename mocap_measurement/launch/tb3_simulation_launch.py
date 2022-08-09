@@ -11,6 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+# Modify by: José Miguel Guerrero Hernández
 
 """This is all-in-one launch script intended for use by nav2 developers."""
 
