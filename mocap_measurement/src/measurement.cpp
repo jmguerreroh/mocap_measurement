@@ -84,9 +84,21 @@ class MeasurementSubscriber : public rclcpp::Node
       measurement.rb_pose = MeasurementSubscriber::rigidbody_;
       measurement.amcl_pose = MeasurementSubscriber::amcl_;
 
+      measurement.distance = distance(MeasurementSubscriber::rigidbody_, MeasurementSubscriber::amcl_);
+
       publisher_measurement_ -> publish(measurement);
     }
 
+    float distance(geometry_msgs::msg::PoseWithCovarianceStamped real, geometry_msgs::msg::PoseWithCovarianceStamped estimated) const
+    {
+      float x_real = real.pose.pose.position.x;
+      float y_real = real.pose.pose.position.y;
+      float x_estimated = estimated.pose.pose.position.x;
+      float y_estimated = estimated.pose.pose.position.y;
+
+      return std::sqrt(std::pow(x_real - x_estimated, 2) + std::pow(y_real - y_estimated, 2) * 1.0);
+    }
+    
     rclcpp::Subscription<mocap_msgs::msg::RigidBody>::SharedPtr subscription_rb_;
     rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr subscription_amcl_;
     rclcpp::Publisher<mocap_measurement_msgs::msg::Measurement>::SharedPtr publisher_measurement_;
@@ -98,6 +110,7 @@ class MeasurementSubscriber : public rclcpp::Node
 
 geometry_msgs::msg::PoseWithCovarianceStamped MeasurementSubscriber::rigidbody_;
 geometry_msgs::msg::PoseWithCovarianceStamped MeasurementSubscriber::amcl_;
+
 
 int main(int argc, char * argv[])
 {
